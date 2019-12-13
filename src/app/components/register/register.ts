@@ -24,11 +24,13 @@ export class RegisterComponent {
         private router: Router
     ) { }
 
-    register() {
+    async register() {
         if (this.ngForm.form.invalid) {
             return;
         }
-        // TODO utiliser registrationService pour ajouter un nouvel utilisateur
-        // TODO utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login
+        await this.registrationService.register(this.model);
+        this.router.navigate(['/login']);
+        // DONE utiliser registrationService pour ajouter un nouvel utilisateur : DONE
+        // DONE utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login: DONE
     }
 }

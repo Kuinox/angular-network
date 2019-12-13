@@ -21,8 +21,10 @@ export class LoginComponent {
     async login() {
         this.failed = false;
         try {
-            // TODO utiliser authService en async/await pour authentifier l'utilisateur
-            // TODO redirection sur "/"
+            await this.authService.authenticate(this.model);
+            this.router.navigate(['/']);
+            // DONE utiliser authService en async/await pour authentifier l'utilisateur
+            // DONE redirection sur "/"
         }
         catch (e) {
             return this.failed = true;
