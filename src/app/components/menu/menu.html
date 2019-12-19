@@ -1,7 +1,7 @@
 <nav>
   <add-channel></add-channel>
   <!-- TODO itérer sur les channels -->
-<a *ngFor="let channel of channels" [routerLink]="channel.id"></a>
+<a *ngFor="let channel of channels" [routerLink]="[channel.id]">{{channel.name}}</a>
 </nav>
 
 <style>
