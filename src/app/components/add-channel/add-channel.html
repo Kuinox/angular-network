@@ -5,6 +5,7 @@
   <form class="modal-content" (ngSubmit)="save()" #f="ngForm">
     <nz-form-item>
       <label for="name">Nom</label>
+      <input type="text" nz-input name="name" [(ngModel)]="model.name" #name="ngModel" required/>
       <!-- TODO input text required -->
     </nz-form-item>
   </form>
