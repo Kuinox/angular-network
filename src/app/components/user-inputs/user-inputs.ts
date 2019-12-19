@@ -23,8 +23,9 @@ export class UserInputsComponent {
     ) {
     }
 
-    send() {
+    async send() {
         if(!this.message) return;
-        this.postervice.post(this.channelId, this.message);
+        await this.postervice.post(this.channelId, this.message);
+        this.submitted.emit();
     }
 }

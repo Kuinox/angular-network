@@ -1,11 +1,12 @@
 <div class="header">
   <div class="user-picture">
-    <!-- TODO utiliser le composant user-profile-picture -->
+    <user-profile-picture [src]="post.user.pictureUrl"></user-profile-picture>
   </div>
   <div class="username">
-    <!-- afficher le nom -->
+      {{post.user.username}}
 
     <div class="date">
+      {{post.creationTime | date}}
       <!-- afficher la date avec le pipe date -->
     </div>
   </div>
@@ -20,16 +21,16 @@
 </div>
 <div class="body">
   <pre class="message">
-    <!-- afficher le message -->
+    {{post.message}}
   </pre>
   <div *ngIf="post.content">
-    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    <!-- TODO afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
   </div>
 </div>
 <div class="footer">
   <nz-collapse [nzBordered]="false" *ngIf="post.comments && post.comments.length > 0">
     <nz-collapse-panel [nzHeader]="post.comments.length +' commentaire' + (post.comments.length > 1 ? 's' : '')">
-        <!-- TODO afficher le liste des posts avec post-component -->
+      <post-comment *ngFor="let item of post.comments" [comment]="item"></post-comment>
     </nz-collapse-panel>
   </nz-collapse>
 

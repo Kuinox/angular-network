@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post } from 'models';
 import { PostService, PostSocketService, LoggedUser, MessageParser } from 'services';
-
 /**
  * Affiche les poste
  */
