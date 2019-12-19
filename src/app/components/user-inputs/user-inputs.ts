@@ -25,6 +25,6 @@ export class UserInputsComponent {
 
     send() {
         if(!this.message) return;
-        // TODO envoyer le message via l'évènement submitted
+        this.postervice.post(this.channelId, this.message);
     }
 }

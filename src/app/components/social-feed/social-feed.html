@@ -1,4 +1,12 @@
 <div class="social-app-feed">
+    <div *ngFor="let item of items">
+        <div> <!-- message header -->
+            Auteur: {{item.user.username}}
+        </div>
+        <div> <!-- message content -->
+            {{item.message}}
+        </div>
+    </div>
     <!-- itérer sur les posts et les afficher avec le composant post -->
 </div>
 <div class="social-app-inputs">
