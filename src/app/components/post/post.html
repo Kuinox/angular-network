@@ -34,7 +34,7 @@
     </nz-collapse-panel>
   </nz-collapse>
 
-  <user-inputs [channelId]="post.channel.id" (submitted)="onComment($event)"></user-inputs>
+  <user-inputs [channelId]="post.channel.id" [post]="post" (submitted)="onComment($event)"></user-inputs>
 </div>
 <style>
   :host {

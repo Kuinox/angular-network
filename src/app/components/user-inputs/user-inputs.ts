@@ -14,6 +14,8 @@ export class UserInputsComponent {
 
     @Input() channelId: string;
     message:string;
+
+    @Input() post?: Post;
     
     @Output()
     submitted: EventEmitter<any> = new EventEmitter();
@@ -25,7 +27,12 @@ export class UserInputsComponent {
 
     async send() {
         if(!this.message) return;
-        await this.postervice.post(this.channelId, this.message);
+        if(this.post == null) {
+            await this.postervice.post(this.channelId, this.message);
+        } else {
+            await this.postervice.comment(this.post, this.message);
+        }
+        
         this.submitted.emit();
     }
 }
