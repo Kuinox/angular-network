@@ -24,39 +24,39 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Level I
 
-1. Faire le formulaire pour l'ajout d'un user
-2. Rendre username et le mot de passe obligatoire
-3. En cas de succès, rediriger l'utilisateur sur /login
+1. Faire le formulaire pour l'ajout d'un user #DONE
+2. Rendre username et le mot de passe obligatoire #DONE
+3. En cas de succès, rediriger l'utilisateur sur /login #DONE
 
 #### Level II
-4. Afficher les messages d'erreurs de validation pour le mot de passe
-5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username.
+4. Afficher les messages d'erreurs de validation pour le mot de passe #CAN BE IMPROVED (CSS/MORE ERROR)
+5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username. #CAN BE IMPROVED (CSS)
 
 
 ### Login
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur "/" en cas de succès
+1. Faire le formulaire de login #DONE
+2. Rendre username et le mot de passe obligatoire #DONE
+3. Rediriger l'utilisateur sur "/" en cas de succès #DONE
 
 #### Level II
 
-4. Afficher les messages d'erreurs de validation pour chaque champs
-5. Afficher un message si le login à échoué
+4. Afficher les messages d'erreurs de validation pour chaque champs #CAN BE IMPROVED
+5. Afficher un message si le login à échoué #CAN BE IMPROVED
 
 
 ### Channel
 
 #### Level I
 
-1. Afficher la liste des channels dans le menu
-2. Naviguer sur un channel au clic dans le menu
+1. Afficher la liste des channels dans le menu #CAN BE IMPROVED (css)
+2. Naviguer sur un channel au clic dans le menu #DONE
 
 #### Level II
 
-3. Pouvoir créer un nouveau channel
+3. Pouvoir créer un nouveau channel #DONE
 4. Sélectionner par défaut le premier channel de la liste
 5. Ajouter ajouter les nouveaux channels dynamiquement
 
@@ -64,9 +64,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Level I
 
-1. Afficher les posts reçues pour le channel courant
-2. Afficher l'auteur des messages
-3. Afficher la date du posts
+1. Afficher les posts reçues pour le channel courant #DONE
+2. Afficher l'auteur des messages #DONE
+3. Afficher la date du posts #DONE
 4. Insérer les nouveaux posts reçues via WebSocket
 5. Afficher une image si le message contient une url vers une image
 6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
@@ -83,8 +83,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Commentaires
 
 ### Level I
-1. Pouvoir commenter un post
-2. Afficher les commentaires d'un post 
+1. Pouvoir commenter un post #DONE
+2. Afficher les commentaires d'un post #DONE
 3. Afficher l'auteur du commentaires
 4. Insérer les nouveaux commentaires reçues via WebSocket
 

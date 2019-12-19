@@ -97,3 +97,19 @@ export class YoutubePostContent extends PostContent<YoutubeContent> {
         });
     }
 }
+
+export class UserConnectionActivity {
+
+}
+
+export class LikeActivity {
+    
+}
+
+export class ChannelCreationActivity {
+
+}
+
+export class Activity {
+    activity: Post | Comment | UserConnectionActivity | LikeActivity | ChannelCreationActivity;
+}
