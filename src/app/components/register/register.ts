@@ -15,9 +15,11 @@ import { NzMessageService } from 'ng-zorro-antd';
 export class RegisterComponent {
     @ViewChild(NgForm, { static: false })
     ngForm: NgForm;
-
     model = new UserRegistration();
-
+    loading = false;
+    usernameLoading = false;
+    promiseCanceller: () => void;
+    usernameIsFree = true;
     constructor(
         private registrationService: RegistrationService,
         private messageService: NzMessageService,
@@ -33,4 +35,29 @@ export class RegisterComponent {
         // DONE utiliser registrationService pour ajouter un nouvel utilisateur : DONE
         // DONE utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login: DONE
     }
+
+
+
+    async checkUsernameAvailable() {
+        if (this.usernameLoading) {
+            this.promiseCanceller();
+        } else {
+            this.usernameLoading = true;
+        }
+        let response = await new Promise<boolean | null>((resolve, reject) => {
+            this.promiseCanceller = () => resolve(null);
+            this.registrationService.usernameExists(this.ngForm.value.username)
+                .then((val) => {
+                    resolve(val);
+                })
+                .catch((reason) => {
+                    reject(reason);
+                });
+        });
+        if (response == null) return;
+        this.usernameLoading = false;
+        this.usernameIsFree = !response;
+    }
+
+
 }
