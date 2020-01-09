@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { PostService, MessageParser } from '../../services/index';
+import { PostService, MessageParser, NotificationService } from '../../services/index';
 import { Post } from '../../models';
 import { ActivatedRoute } from '@angular/router';
 
@@ -21,18 +21,17 @@ export class UserInputsComponent {
     submitted: EventEmitter<any> = new EventEmitter();
 
     constructor(
-        private postervice: PostService
+        private postervice: PostService,
+        private notificationService: NotificationService
     ) {
     }
 
     async send() {
         if(!this.message) return;
-        if(this.post == null) {
-            await this.postervice.post(this.channelId, this.message);
-        } else {
-            await this.postervice.comment(this.post, this.message);
-        }
-        
+        let activity = this.post == null ? 
+          await this.postervice.post(this.channelId, this.message)
+        : await this.postervice.comment(this.post, this.message);
+        this.notificationService.addActivity(activity);
         this.submitted.emit();
     }
 }

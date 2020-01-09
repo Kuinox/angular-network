@@ -110,6 +110,4 @@ export class ChannelCreationActivity {
 
 }
 
-export class Activity {
-    activity: Post | Comment | UserConnectionActivity | LikeActivity | ChannelCreationActivity;
-}
+export type Activity = Post | Comment | UserConnectionActivity | LikeActivity | ChannelCreationActivity;

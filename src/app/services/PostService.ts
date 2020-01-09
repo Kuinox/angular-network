@@ -25,13 +25,13 @@ export class PostService {
      * @param channelId le channel sur lequel publier le post
      * @param message Le contenu du post
      */
-    post(channelId: string, message: string): Promise<any> {
+    post(channelId: string, message: string): Promise<Post> {
         if (!message) {
             throw new Error("The post message cannot be empty!");
         }
 
         return this.http
-            .post<any>(`${this.config.url}/api/channel/${channelId}/post`, { message })
+            .post<Post>(`${this.config.url}/api/channel/${channelId}/post`, { message })
             .toPromise();
     }
 
@@ -49,9 +49,9 @@ export class PostService {
      * @param post post à commenter
      * @param message contenu du commentaire
      */
-    comment(post: Post, message: string): Promise<any> {
+    comment(post: Post, message: string): Promise<Comment> {
         return this.http
-            .post(`${this.config.url}/api/post/${post.id}/comment`, { message })
+            .post<Comment>(`${this.config.url}/api/post/${post.id}/comment`, { message })
             .toPromise();
     }
 }

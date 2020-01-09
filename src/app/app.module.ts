@@ -39,6 +39,7 @@ library.add(fas, far);
         components.VideoFeedContentComponent,
         components.YoutubeFeedContentComponent,
         components.UserProfilePictureComponent,
+        components.ActivityNotificationComponent
     ],
     imports: [
         BrowserModule,

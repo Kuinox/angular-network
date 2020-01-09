@@ -24,9 +24,9 @@ export class ChannelService {
      * Ajoute un nouveau channel
      * @param name nom du channel
      */
-    add(name: string) {
-        return this.http
-            .post(`${this.config.url}/api/channel`, { name })
-            .toPromise();
+    add(name: string) : Promise<Channel> {
+        return this.http.post<Channel>(
+            `${this.config.url}/api/channel`, { name }
+        ).toPromise();
     }
 }

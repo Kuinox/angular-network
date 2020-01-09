@@ -1,5 +1,6 @@
 export * from './app.component';
 export * from './notification-bar/notification-bar';
+export * from './activity-notification/activity-notification';
 export * from './social-feed/social-feed';
 export * from './user-inputs/user-inputs';
 export * from './post-comment/post-comment';
