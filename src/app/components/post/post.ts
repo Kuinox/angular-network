@@ -10,13 +10,15 @@ import { PostService, PostSocketService, LoggedUser, MessageParser } from 'servi
 })
 export class PostComponent { 
     @Input() post: Post;
-    
+    id : string;
     constructor(
         private postSocket: PostSocketService, 
         private user: LoggedUser,
         private postService: PostService,
         private parser: MessageParser
-    ) {}
+    ) {
+        this.id="post_"+this.id
+    }
 
     ngOnInit() {
         // détermine le bon type de contenu

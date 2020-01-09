@@ -28,10 +28,13 @@ export class UserInputsComponent {
 
     async send() {
         if(!this.message) return;
-        let activity = this.post == null ? 
-          await this.postervice.post(this.channelId, this.message)
-        : await this.postervice.comment(this.post, this.message);
-        this.notificationService.addActivity(activity);
+        if(this.post == null) {
+            let post = await this.postervice.post(this.channelId, this.message);
+            this.notificationService.addPost(post);
+        } else {
+            let comment = await this.postervice.comment(this.post, this.message);
+            this.notificationService.addComment(comment);
+        }
         this.submitted.emit();
     }
 }

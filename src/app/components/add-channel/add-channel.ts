@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ChannelService, NotificationService } from 'services';
+import { ChannelService, NotificationService, LoggedUser} from 'services';
 /**
  * Ajoute un nouveau channel
  */
@@ -16,7 +16,8 @@ export class AddChannelComponent {
     model = { name: '' };
     constructor(
         private channelService: ChannelService,
-        private notificationService: NotificationService
+        private notificationService: NotificationService,
+        private loggedUser : LoggedUser
     ) {
     }
 
@@ -32,7 +33,10 @@ export class AddChannelComponent {
     async save() {
         if (this.ngForm.valid) {
             let newChannel = await this.channelService.add(this.model.name);
-            this.notificationService.addActivity(newChannel);
+            this.notificationService.addChannel({
+                channel: newChannel,
+                user: this.loggedUser
+            });
             this.hide();
         }
     }

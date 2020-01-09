@@ -1,26 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post, UserConnectionActivity, LikeActivity, ChannelCreationActivity, Activity } from 'models';
+import { Post } from 'models';
+import { Activity } from 'src/app/services/NotificationService';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'activity-notification',
     templateUrl: 'activity-notification.html'
 })
 export class ActivityNotificationComponent implements OnInit {
-    @Input() activity : Activity;
-
-    post: Post | undefined;
-    comment: Comment | undefined;
-    userConnection: UserConnectionActivity | undefined;
-    likeActivity: LikeActivity | undefined;
-    channelCreationActivity : ChannelCreationActivity | undefined;
-    constructor() { }
-
-    ngOnChanges() {
-        if(this.activity instanceof Post) this.post = this.activity;
-        if(this.activity instanceof Comment) this.comment = this.activity;
-        if(this.activity instanceof UserConnectionActivity) this.userConnection = this.activity;
-        if(this.activity instanceof LikeActivity) this.likeActivity = this.activity;
-        if(this.activity instanceof ChannelCreationActivity) this.channelCreationActivity = this.activity;
+    constructor(private router: Router) {
     }
+
+    @Input()
+    activity: Activity;
+
+    clicked() {
+        let link = this.activity.location;
+        let scrollDiv = document.getElementById("post_" + this.activity.scrollTo);
+        if (link != undefined) {
+            this.router.navigate([link]);
+        }
+        if (scrollDiv != undefined) {
+            scrollDiv.scrollIntoView();
+        }
+    }
+
     ngOnInit() { }
 }

@@ -99,15 +99,15 @@ export class YoutubePostContent extends PostContent<YoutubeContent> {
 }
 
 export class UserConnectionActivity {
-
+    user: User;
 }
 
 export class LikeActivity {
-    
+    user: User;
+    likedPost: Post
 }
 
 export class ChannelCreationActivity {
-
+    user: User;
+    channel: Channel;
 }
-
-export type Activity = Post | Comment | UserConnectionActivity | LikeActivity | ChannelCreationActivity;
