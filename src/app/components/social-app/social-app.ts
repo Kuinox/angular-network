@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Channel } from 'models';
-import { ChannelService } from 'services';
+import { ChannelService, PostSocketService } from 'services';
 import { ActivatedRoute } from '@angular/router';
 
 /**
@@ -16,12 +16,19 @@ export class SocialAppComponent implements OnInit {
 
     constructor(
         private channelService: ChannelService,
+        private postSocketService: PostSocketService,
+
         private route: ActivatedRoute
     ) {
     }
 
+
+
     async ngOnInit() {
         this.channels = await this.channelService.getAll()
+        this.postSocketService.onNewChannel((channel: Channel) => {
+            this.channels.push(channel);
+        });
         // utiliser le channelService pour récupérer la liste
         // this.route.firstChild.params permet de connaître les paramètre de l'url
     }
