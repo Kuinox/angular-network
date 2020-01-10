@@ -27,11 +27,19 @@ export class PostComponent {
         this.postSocketService.onComment((comment) => {
             this.post.comments.push(comment);
         }); 
+
+        this.postSocket.onLike((like) => {
+            if(like.post.id !== this.user.id) {
+            }      
+        });
     }
-
-
 
     async onComment(message: string) {
       // TODO send message
+    }
+
+    async hasClicked(event) {
+            this.post.liked =  true;
+        await this.postService.like(this.post);
     }
 }
