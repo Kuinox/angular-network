@@ -15,17 +15,21 @@ export class PostComponent {
         private postSocket: PostSocketService, 
         private user: LoggedUser,
         private postService: PostService,
-        private parser: MessageParser
+        private parser: MessageParser,
+        private postSocketService : PostSocketService
     ) {}
 
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
+        this.postSocketService.onComment((comment) => {
+            this.post.comments.push(comment);
+        }); 
     }
 
 
 
-    onComment(message: string) {
-        // TODO envoyer le message
+    async onComment(message: string) {
+      // TODO send message
     }
 }

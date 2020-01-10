@@ -28,7 +28,7 @@ export class SocialAppComponent implements OnInit {
         this.channels = await this.channelService.getAll()
         this.postSocketService.onNewChannel((channel: Channel) => {
             this.channels.push(channel);
-        });
+        }); 
         // utiliser le channelService pour récupérer la liste
         // this.route.firstChild.params permet de connaître les paramètre de l'url
     }
