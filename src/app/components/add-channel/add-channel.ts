@@ -32,11 +32,7 @@ export class AddChannelComponent {
 
     async save() {
         if (this.ngForm.valid) {
-            let newChannel = await this.channelService.add(this.model.name);
-            this.notificationService.addChannel({
-                channel: newChannel,
-                user: this.loggedUser
-            });
+            await this.channelService.add(this.model.name);
             this.hide();
         }
     }

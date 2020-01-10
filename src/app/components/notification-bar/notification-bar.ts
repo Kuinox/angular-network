@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService, Activity } from '../../services/NotificationService';
-import { Post, UserConnectionActivity, LikeActivity, ChannelCreationActivity, Comment } from 'models';
+import { Post, Comment } from 'models';
 @Component({
     selector: 'notification-bar',
     templateUrl: 'notification-bar.html'

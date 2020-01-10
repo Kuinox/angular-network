@@ -29,11 +29,9 @@ export class UserInputsComponent {
     async send() {
         if(!this.message) return;
         if(this.post == null) {
-            let post = await this.postervice.post(this.channelId, this.message);
-            this.notificationService.addPost(post);
+            await this.postervice.post(this.channelId, this.message);
         } else {
-            let comment = await this.postervice.comment(this.post, this.message);
-            this.notificationService.addComment(comment);
+            await this.postervice.comment(this.post, this.message);
         }
         this.submitted.emit();
     }
