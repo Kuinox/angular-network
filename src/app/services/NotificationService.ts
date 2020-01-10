@@ -28,7 +28,6 @@ export class NotificationService {
         Notification.requestPermission();
         document.addEventListener("visibilitychange", () => {
             this.isWindowVisible = document.visibilityState === 'visible';
-            console.log("visible:"+this.isWindowVisible);
         });
         socket.onComment(comment => this.activityPush({
             activityMessage: comment.user.username + " commented a post.",
