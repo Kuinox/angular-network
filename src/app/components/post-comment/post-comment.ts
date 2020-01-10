@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Comment } from 'models';
+import { LoggedUser } from 'services';
 
 /**
  * Affiche le commentaire d'un post
@@ -10,4 +11,10 @@ import { Comment } from 'models';
 })
 export class PostCommentComponent{
     @Input() comment: Comment;
+
+    constructor(
+        private user: LoggedUser
+        )
+    {
+    }
 }
