@@ -1,6 +1,11 @@
 <div>
     <activity-notification *ngFor="let item of activities" [activity]="item"></activity-notification>
 </div>
+<div *ngFor="let notif of notifications">
+    <div class="container">
+        <span> {{ computeNotifStringDiplay(notif) }}</span>
+    </div>
+</div>
 <style>
     :host {
         display: block;
