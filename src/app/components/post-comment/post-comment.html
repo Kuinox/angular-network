@@ -1,5 +1,16 @@
 <!-- TODO afficher le message -->
 
-<div>
+<span>
+    <div class="username">
+        {{comment.user.username}}
+    </div>
     {{comment.message}}
-</div>
+</span>
+
+<style>
+    .username {
+        flex: 1;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
