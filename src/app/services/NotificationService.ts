@@ -16,7 +16,7 @@ export class Activity {
 export class NotificationService {
     onChange: EventEmitter<any> = new EventEmitter();
     private activities: Activity[] = [];
-    private isWindowVisible: boolean;
+    private isWindowVisible: boolean = true;
     constructor(
         private notification: NzNotificationService,
         private socket: PostSocketService
@@ -28,6 +28,7 @@ export class NotificationService {
         Notification.requestPermission();
         document.addEventListener("visibilitychange", () => {
             this.isWindowVisible = document.visibilityState === 'visible';
+            console.log("visible:"+this.isWindowVisible);
         });
         socket.onComment(comment => this.activityPush({
             activityMessage: comment.user.username + " commented a post.",
