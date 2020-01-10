@@ -66,6 +66,21 @@ export abstract class PostContent<T> {
     }
 }
 
+export class NotificationModel {
+    type: NotificationType;
+    user?: User;
+    data: any;
+    datetime: Date;
+}
+
+export enum NotificationType {
+    NewChannel = 'NewChannel',
+    UserConnect = 'UserConnect',
+    Post = 'Post',
+    Like = 'Like',
+    Comment = 'Comment'
+} 
+
 export interface MediaContent {
     mediaUrl: string;
 }

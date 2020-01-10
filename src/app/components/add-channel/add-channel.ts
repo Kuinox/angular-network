@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChannelService, NotificationService } from 'services';
 /**
@@ -12,6 +12,7 @@ export class AddChannelComponent {
     @ViewChild(NgForm, { static: false })
     ngForm: NgForm;
     isVisible: boolean = false;
+    @Output() eventEmitter: EventEmitter<any> = new EventEmitter();
 
     model = { name: '' };
     constructor(
@@ -32,6 +33,7 @@ export class AddChannelComponent {
     async save() {
         if (this.ngForm.valid) {
             let newChannel = await this.channelService.add(this.model.name);
+            this.eventEmitter.emit(newChannel);
             this.notificationService.addActivity(newChannel);
             this.hide();
         }
